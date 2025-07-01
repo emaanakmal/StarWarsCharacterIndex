@@ -42,6 +42,7 @@ header img {
   cursor: pointer;
   text-align: center;
   transition: transform 0.2s;
+  font-family: 'Courier New', Courier, monospace;
 }
 
 .card:hover {
