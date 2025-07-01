@@ -1,6 +1,15 @@
 export default function Modal({ character, show, onClose }) {
       if (!show || !character) return null;
 
+      let masters = 'None'
+      
+      if (character.masters && character.masters.length > 1) {
+        masters = character.masters.map(item => <p key = {item}>{item}</p>)
+      }
+      else if (character.masters && !character.masters.length){
+        masters = character.masters;
+      }
+
       return (
         <div className="modal-overlay">
           <div className="modal-content">
@@ -11,7 +20,7 @@ export default function Modal({ character, show, onClose }) {
             <p>Birth Year: {character.born}</p>
             <p>Gender: {character.gender}</p>
             <p>Homeworld: {character.homeworld}</p>
-            <div>Masters: {character.masters ? character.masters.map(item => <p key = {item}>{item}</p>) : 'None'}</div>
+            <div>Masters: {masters}</div>
           </div>
         </div>
       );
